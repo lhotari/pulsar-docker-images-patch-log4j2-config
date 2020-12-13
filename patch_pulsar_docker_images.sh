@@ -12,7 +12,8 @@ for pulsar_version in 2.6.2 2.7.0; do
     image_tag="apachepulsar/${PULSAR_IMAGE}:${pulsar_version}${VERSION_SUFFIX}"
     echo "building $image_tag"
     set -x
-    docker build --build-arg PULSAR_VERSION=${pulsar_version} --build-arg PULSAR_IMAGE=${PULSAR_IMAGE} . -t "$image_tag"
+    cp pulsar-${pulsar_version} pulsar
+    docker build --build-arg=PULSAR_VERSION=${pulsar_version} --build-arg=PULSAR_IMAGE=${PULSAR_IMAGE} . -t "$image_tag"
     set +x
     echo "built $image_tag"
     if [ -n "$CUSTOM_REPO" ]; then

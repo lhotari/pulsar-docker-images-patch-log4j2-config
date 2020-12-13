@@ -9,12 +9,15 @@ are have the original docker images as parent, but only change the wrapper scrip
 
 ## Building patched docker images
 
+The script will build images `apachepulsar/pulsar-all:2.6.2-loggingpatch` and
+`apachepulsar/pulsar-all:2.7.0-loggingpatch` .
+
 Building and pushing to an internal repository
 ```
 ./patch_pulsar_docker_images.sh internal-repository.domain.com
 ```
 
-Building and pushing to an internal repository
+Building locally without pushing
 ```
-./patch_pulsar_docker_images.sh internal-repository.domain.com
+./patch_pulsar_docker_images.sh
 ```
